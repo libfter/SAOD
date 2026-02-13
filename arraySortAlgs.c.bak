@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "basicfunc.h"
+#include "sortalgs.h"
+
+#define MAS_LEN 10
+
+
+int main() {
+    srand(time(NULL));
+
+    int iterations = 0;
+    int debug = 0;
+
+    int array[MAS_LEN];
+    int T[iterations+1];
+
+    int SumM = 0;
+    int SumC = 0;
+
+
+    printf("iterations quantity - ");
+    scanf("%d", &iterations);
+    printf("debug? - ");
+    scanf("%d", &debug);
+
+    printf("\nSelectionSort\n");
+    printf("Excepted max T: M = %d, C = %d\n\n", 3*(MAS_LEN-1), (MAS_LEN*MAS_LEN-MAS_LEN)/2);
+
+    printf("x%d RANDOM NUMBERS ARRAYS\n", iterations);
+    for (int i = 0; i < iterations; i++) {
+        T[i] = SumM + SumC;
+
+        FillRand(array, MAS_LEN);
+
+        if (debug) {
+            PrintInfo(array, MAS_LEN);
+        }
+        SelectionSort(array, MAS_LEN, &SumM, &SumC, debug);
+        if (debug) {
+            PrintInfo(array, MAS_LEN);
+            printf("\n");
+        }
+    }
+
+    create_graph(T, iterations+1);
+
+    return 0;
+    /*
+    printf("x%d RANDOM NUMBERS ARRAYS\n", iterations);
+    for (int i = 0; i < iterations; i++) {    
+        FillRand(array, MAS_LEN);
+        
+        if (debug) { PrintInfo(array, MAS_LEN); }
+        SelectionSort(array, MAS_LEN, &SumM, &SumC, debug);
+        if (debug) { PrintInfo(array, MAS_LEN);
+        printf("\n"); }
+    }
+
+    printf("Mф + Сф = %d\n\n", SumM + SumC);
+    SumM = 0;
+    SumC = 0;
+
+    printf("x%d INCREMENT NUMBERS ARRAYS\n", iterations);
+    for (int i = 0; i < iterations; i++) {
+        FillInc(array, MAS_LEN);
+      
+        if (debug) { PrintInfo(array, MAS_LEN); }
+        SelectionSort(array, MAS_LEN, &SumM, &SumC, debug);
+        if (debug) { PrintInfo(array, MAS_LEN);
+        printf("\n"); } 
+    }
+
+
+    printf("Mф + Сф = %d\n\n", SumM + SumC);
+    SumM = 0;
+    SumC = 0;
+
+    printf("x%d DECREMENT NUMBERS ARRAYS\n", iterations);
+    for (int i = 0; i < iterations; i++) {
+        FillDec(array, MAS_LEN);
+        
+        if (debug) { PrintInfo(array, MAS_LEN); }
+        SelectionSort(array, MAS_LEN, &SumM, &SumC, debug);
+        if (debug) { PrintInfo(array, MAS_LEN);
+        printf("\n"); } 
+    }
+
+    printf("Mф + Сф = %d\n", SumM + SumC);
+    SumM = 0;
+    SumC = 0;
+    
+    return 0;
+*/
+}
+
