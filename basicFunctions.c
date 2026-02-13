@@ -60,10 +60,13 @@ void PrintInfo(int *A, int n) {
 }
 
 
-void create_graph(int *T, int n) {
+void create_graph_file(int *T, int n) {
     FILE *gp = fopen("graph.gp", "w");
 
-    fprintf(gp, "plot '-' with lines title 'T'\n");
+    fprintf(gp, "set grid\n");
+    fprintf(gp, "set xlabel \"Количество элементов в массиве\"\n");
+    fprintf(gp, "set ylabel \"Трудоемкость\"\n");
+    fprintf(gp, "plot '-' with lines title 'InsertSort'\n");
 
     for (int i = 0; i < n; i += 1) {
         fprintf(gp, "%d %d\n", i, T[i]);

@@ -8,6 +8,6 @@ int CheckSum(int *A, int n);
 int RunNumber(int *A, int n);
 void PrintMas(int *A, int n);
 void PrintInfo(int *A, int n);
-void create_graph(int *T, int n);
+void create_graph_file(int *T, int n);
 
 #endif
